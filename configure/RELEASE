@@ -23,10 +23,10 @@
 # the CONFIG_SITE file.
 
 # Variables and paths to dependent modules:
-MODULES = /opt/epics/modules
+#MODULES = /opt/epics/modules
 #MYMODULE = $(MODULES)/my-module
-CALC = ${MODULES}/calc
-AUTOSAVE = ${MODULES}/autosave
+#CALC = ${MODULES}/calc
+#AUTOSAVE = ${MODULES}/autosave
 
 # If using the sequencer, point SNCSEQ at its top directory:
 #SNCSEQ = $(MODULES)/seq-ver

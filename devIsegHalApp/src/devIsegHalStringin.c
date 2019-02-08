@@ -100,7 +100,7 @@ static long devIsegHalRead_si( dbCommon *prec, char* value ) {
   stringinRecord *psi = (stringinRecord *)prec;
   size_t valLen = strlen( value );
   if( MAX_STRING_SIZE <= valLen ) {
-    fprintf( stderr, "\033[31;1m%s: Value string too long, truncating! Lentgh: %lu\033[0m\n",
+    fprintf( stderr, "\033[31;1m%s: Value string too long, truncating! Length: %zu\033[0m\n",
              psi->name, valLen );
   }
   strncpy( psi->val, value, MAX_STRING_SIZE );
