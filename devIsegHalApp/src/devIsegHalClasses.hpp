@@ -84,6 +84,7 @@ class isegHalThread: public epicsThreadRunable {
   inline double getIntervall(){ return _pause; }
 
   inline void setDbgLvl( int dbglvl ) { _debug = dbglvl; }
+  inline int  getDbgLvl( ) { return _debug; }
   inline void disable() { _run = false; }
   inline void enable() { _run = true; }
 

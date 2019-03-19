@@ -395,8 +395,9 @@ long devIsegHalRead( dbCommon *prec ) {
     // record "normally" processed
     IsegItem item = iseg_getItem( pinfo->interface, pinfo->object );
     if( strcmp( item.quality, ISEG_ITEM_QUALITY_OK ) != 0 ) {
-      fprintf( stderr, "\033[31;1m%s: Error while reading value '%s' from interface '%s': '%s' (Q: %s)\033[0m\n",
-               prec->name, item.object, pinfo->interface, item.value, item.quality );
+      if( myIsegHalThread && ( 3 <= myIsegHalThread->getDbgLvl( ) ) )
+		  fprintf( stderr, "\033[31;1m%s: Error while reading value '%s' from interface '%s': '%s' (Q: %s)\033[0m\n",
+				   prec->name, item.object, pinfo->interface, item.value, item.quality );
       recGblSetSevr( prec, READ_ALARM, INVALID_ALARM ); // Set record to READ_ALARM
       return ERROR; 
     }
@@ -583,7 +584,11 @@ isegHalThread::~isegHalThread() {
 void isegHalThread::run() {
   while( true ) {
     std::list<devIsegHal_info_t*>::iterator it = _recs.begin();
-    if( _pause > 0. ) this->thread.sleep( _pause ); 
+    if( _pause > 0. ) {
+      if( 3 <= _debug )
+        printf( "isegHalThread::run: Pause %f sec\n", _pause );
+	  this->thread.sleep( _pause );
+    }
 
     if( !_run ) continue;
 
