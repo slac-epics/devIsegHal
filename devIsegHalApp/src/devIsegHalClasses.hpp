@@ -80,8 +80,8 @@ class isegHalThread: public epicsThreadRunable {
   void registerInterrupt( dbCommon* prec, devIsegHal_info_t* pinfo );
   void cancelInterrupt( const devIsegHal_info_t* pinfo );
 
-  inline void changeIntervall( double val ) { _pause = val; }
-  inline double getIntervall(){ return _pause; }
+  inline void changeInterval( double val ) { _pause = val; }
+  inline double getInterval(){ return _pause; }
 
   inline void setDbgLvl( int dbglvl ) { _debug = dbglvl; }
   inline int  getDbgLvl( ) { return _debug; }
