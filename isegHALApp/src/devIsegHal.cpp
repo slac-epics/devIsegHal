@@ -697,20 +697,21 @@ extern "C" {
   //! KEY is the name of the option and VALUE the new value for the option.
   //!
   //! Possible KEYs are:
-  //! Intervall  -  set the wait time after going through the list of records with the polling thread
+  //! Interval   -  set the wait time after going through the list of records with the polling thread
   //! LogLevel   -  Change loglevel of isegHalServer
   //! debug      -  Enable debug output of polling thread
   //----------------------------------------------------------------------------
   static void setOptCallFunc( const iocshArgBuf *args ) {
     // Set new intervall for polling thread
-    if( strcmp( args[1].sval, "Intervall" ) == 0 ) {
-      double newIntervall = 0.;
-      int n = sscanf( args[2].sval, "%lf", &newIntervall );
+    if( strcmp( args[1].sval, "Interval" ) == 0 ) {
+      double newInterval = 0.;
+      int n = sscanf( args[2].sval, "%lf", &newInterval );
       if( 1 != n ) {
         fprintf( stderr, "\033[31;1mInvalid value for key '%s': %s\033[0m\n", args[1].sval, args[2].sval );
         return;
       }
-      myIsegHalThread->changeIntervall( newIntervall );
+      myIsegHalThread->changeInterval( newInterval );
+	  return;
     }
 
     // change log level from isegHAL server
@@ -719,6 +720,7 @@ extern "C" {
         fprintf( stderr, "\033[31;1mCould not change LogLevel to '%s'\033[0m\n", args[2].sval );
         return;
       }
+	  return;
     }
 
     // Set new debug level
@@ -730,8 +732,11 @@ extern "C" {
         return;
       }
       myIsegHalThread->setDbgLvl( newDbgLvl );
+	  return;
     }
 
+	fprintf( stderr, "\033[31;1mUnsupported key '%s'\033[0m\n", args[1].sval );
+	return;
   }
 
   //----------------------------------------------------------------------------
