@@ -202,7 +202,7 @@ record( longout, "${P}${R}${CAN_LINE}:${DEVICE_ID}:EventMask" ) {
 record( ai, "${P}${R}${CAN_LINE}:${DEVICE_ID}:FanSpeed" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@${CAN_LINE}.${DEVICE_ID}.FanSpeed can0" )
-  field( SCAN, "I/O Intr" )
+  field( SCAN, "${SCAN=.5 second}" )
   field( TSE,  "-2" )
 }
 
@@ -353,7 +353,7 @@ record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:CurrentRampSpeed" ) {
 record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:VoltageLimit" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@${CAN_LINE}.${MODULE_ID}.VoltageLimit can0" )
-  field( SCAN, "I/O Intr" )
+  field( SCAN, "${SCAN=.5 second}" )
   field( FLNK, "${P}${R}${CAN_LINE}:${MODULE_ID}:CurrentLimit" )
   field( TSE,  "-2" )
 }
@@ -361,7 +361,7 @@ record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:VoltageLimit" ) {
 record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:VoltageLimitNegative" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@${CAN_LINE}.${MODULE_ID}.VoltageLimit[1] can0" )
-  field( SCAN, "I/O Intr" )
+  field( SCAN, "${SCAN=.5 second}" )
   field( TSE,  "-2" )
 }
 
@@ -375,7 +375,7 @@ record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:Temperature" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@${CAN_LINE}.${MODULE_ID}.Temperature can0" )
   field( TSE,  "-2" )
-  field( SCAN, "I/O Intr" )
+  field( SCAN, "${SCAN=.5 second}" )
 }
 
 record( longin, "${P}${R}${CAN_LINE}:${MODULE_ID}:SerialNumber" ) {
@@ -396,7 +396,7 @@ record( longin, "${P}${R}${CAN_LINE}:${MODULE_ID}:SampleRate" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@${CAN_LINE}.${MODULE_ID}.SampleRate can0" )
   field( FLNK, "${P}${R}${CAN_LINE}:${MODULE_ID}:DigitalFilter" )
-  field( SCAN, "I/O Intr" )
+  field( SCAN, "${SCAN=.5 second}" )
   field( TSE,  "-2" )
 }
 
@@ -598,15 +598,12 @@ record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageMeasure" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.VoltageMeasure can0" )
   field( SCAN, "${SCAN=.5 second}" )
-  field( SCAN, "I/O Intr" )
-#  field( TPRO, "1" )
   field( TSE,  "-2" )
   field( FLNK, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageMeasure:Counter" )
 }
 record( calc,  "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageMeasure:Counter" )
 {
   field( CALC, "VAL+1" )
-#  field( TPRO, "1" )
 }
 record( calc, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageMeasure:Rate" )
 {
@@ -660,7 +657,7 @@ record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:CurrentNominal" ) {
 record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:TemperatureExternal" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.TemperatureExternal can0" )
-  field( SCAN, "I/O Intr" )
+  field( SCAN, "${SCAN=.5 second}" )
   field( TSE,  "-2" )
 }
 
