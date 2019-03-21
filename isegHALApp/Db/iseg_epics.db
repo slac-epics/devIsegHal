@@ -198,6 +198,7 @@ record( longout, "${P}${R}${CAN_LINE}:${DEVICE_ID}:EventMask" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${DEVICE_ID}.EventMask can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 record( ai, "${P}${R}${CAN_LINE}:${DEVICE_ID}:FanSpeed" ) {
   field( DTYP, "isegHAL" )
@@ -319,6 +320,7 @@ record( bo, "${P}${R}${CAN_LINE}:${MODULE_ID}:Control:setFineAdjustment" ) {
   field( ZNAM, "FineAdjustment off" )
   field( ONAM, "FineAdjustment on" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( bo, "${P}${R}${CAN_LINE}:${MODULE_ID}:Control:setKillEnable" ) {
@@ -327,6 +329,7 @@ record( bo, "${P}${R}${CAN_LINE}:${MODULE_ID}:Control:setKillEnable" ) {
   field( ZNAM, "KillEnable off" )
   field( ONAM, "KillEnable on" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( bo, "${P}${R}${CAN_LINE}:${MODULE_ID}:Control:disableVoltageRampSpeedLimit" ) {
@@ -335,6 +338,7 @@ record( bo, "${P}${R}${CAN_LINE}:${MODULE_ID}:Control:disableVoltageRampSpeedLim
   field( ZNAM, "Enabled" )
   field( ONAM, "Disabled" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:VoltageRampSpeed" ) {
@@ -342,12 +346,14 @@ record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:VoltageRampSpeed" ) {
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.VoltageRampSpeed can0" )
   field( FLNK, "${P}${R}${CAN_LINE}:${MODULE_ID}:CurrentRampSpeed" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:CurrentRampSpeed" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.CurrentRampSpeed can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:VoltageLimit" ) {
@@ -586,12 +592,14 @@ record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageSet" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.VoltageSet can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:CurrentSet" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.CurrentSet can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageMeasure" ) {
@@ -632,12 +640,14 @@ record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageBounds" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.VoltageBounds can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:CurrentBounds" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.CurrentBounds can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ai, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VoltageNominal" ) {
@@ -665,6 +675,7 @@ record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:VctCoefficient" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.VctCoefficient can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( mbbiDirect, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:Status" ) {
@@ -680,6 +691,7 @@ record( bo, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:Control:setOn" ) {
   field( ZNAM, "Channel off" )
   field( ONAM, "Channel on" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( bo, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:Control:setEmergency" ) {
@@ -701,6 +713,7 @@ record( longout, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:EventMask" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.EventMask can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( longout, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:DelayedTripAction" ) {
@@ -714,12 +727,14 @@ record( ao, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:DelayedTripTime" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.DelayedTripTime can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( longout, "${P}${R}${CAN_LINE}:${MODULE_ID}:${CHANNEL_ID}:ExternalInhibitAction" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.${CHANNEL_ID}.ExternalInhibitAction can0" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 ######################################
@@ -927,14 +942,18 @@ record( bo, "${P}${R}${CAN_LINE}:GlobalOnOff" ) {
   field( DTYP, "isegHALglobal" )
   field( OUT,  "@OnOff can0" )
   field( TSE,  "-2" )
+  field( DOL,  "0" )
   field( ZNAM, "Off" )
   field( ONAM, "On" )
+  field( PINI, "YES" )
 }
 
 record( bo, "${P}${R}${CAN_LINE}:GlobalEmergency" ) {
   field( DTYP, "isegHALglobal" )
   field( OUT,  "@Emergency can0" )
   field( TSE,  "-2" )
+  field( DOL,  "0" )
   field( ZNAM, "Off" )
   field( ONAM, "EMCY" )
+  field( PINI, "YES" )
 }
