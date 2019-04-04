@@ -197,6 +197,7 @@ long devIsegHalInit( int after ) {
     firstRunBefore = false;
 
     // create polling thread
+	// TODO: Need to create thread sooner so st.cmd calls to devIsegHalSetOpt() work before iocInit()
     myIsegHalThread = new isegHalThread();
 
   } else {
@@ -248,6 +249,7 @@ long devIsegHalInitRecord( dbCommon *prec, const devIsegHal_rec_t *pconf ) {
 
   IsegItemProperty isegItem = iseg_getItemProperty( options.at(1).c_str(), options.at(0).c_str() );
   if( strcmp( isegItem.quality, ISEG_ITEM_QUALITY_OK ) != 0 ) {
+  	// TODO: Should we be printing to stderr and aborting InitRecord function due to comm error?
     fprintf( stderr, "\033[31;1m%s: Error while reading item property '%s' (Q: %s)\033[0m\n",
              prec->name, options.at(0).c_str(), isegItem.quality );
     return ERROR; 
