@@ -4,7 +4,7 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
-devIsegHal_SYS_LIBS += isegHAL-client
+#devIsegHal_SYS_LIBS += isegHAL-client
 
 ifneq ($(ISEGHAL),)
     USR_INCLUDES += -I$(ISEGHAL)
@@ -38,7 +38,6 @@ devIsegHal_SRCS += devIsegHalMbbid.c
 devIsegHal_SRCS += devIsegHalStringin.c
 devIsegHal_SRCS += devIsegHalStringout.c
 
-devIsegHal_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================
 
