@@ -221,8 +221,6 @@ long devIsegHalInit( int after ) {
 //! @return      In case of error return -1, otherwise return 0
 //------------------------------------------------------------------------------
 long devIsegHalInitRecord( dbCommon *prec, const devIsegHal_rec_t *pconf ) {
-  devIsegHal_dset_t *pdset = (devIsegHal_dset_t *)prec->dset;
-  long status = OK;
 
   if( INST_IO != pconf->ioLink->type ) {
     std::cerr << prec->name << ": Invalid link type for INP/OUT field: "
@@ -278,6 +276,9 @@ long devIsegHalInitRecord( dbCommon *prec, const devIsegHal_rec_t *pconf ) {
   memcpy( pinfo->unit,   isegItem.unit,   UNIT_SIZE );
   pinfo->pcallback = NULL;  // just to be sure
 
+#ifdef GET_INITIAL_VALUE_FROM_HAL
+  devIsegHal_dset_t *pdset = (devIsegHal_dset_t *)prec->dset;
+  long status = OK;
   /// Get initial value from HAL
   IsegItem item = iseg_getItem( pinfo->interface, pinfo->object );
   if( strcmp( item.quality, ISEG_ITEM_QUALITY_OK ) != 0 ) {
@@ -296,6 +297,7 @@ long devIsegHalInitRecord( dbCommon *prec, const devIsegHal_rec_t *pconf ) {
     fprintf( stderr, "\033[31;1m%s: Error parsing value for '%s': %s\033[0m\n", prec->name, pinfo->object, item.value );
   }
   if( -2 == prec->tse ) prec->time = pinfo->time;
+#endif
 
   /// I/O Intr handling
   scanIoInit( &pinfo->ioscanpvt );
