@@ -4,30 +4,41 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
+devIsegHal_SYS_LIBS += isegHAL-client
+
+ifneq ($(ISEGHAL),)
+    USR_INCLUDES += -I$(ISEGHAL)
+    USR_LDFLAGS  += -L$(ISEGHAL)
+endif
+ifneq ($(CHECK_TIMESTAMPS),)
+    USR_CXXFLAGS += -DCHECK_LAST_REFRESHED
+endif
 
 #==================================================
 # build a support library
 
-LIBRARY_IOC += devisegHAL
+LIBRARY_IOC += devIsegHal
 
-# install devisegHAL.dbd into <top>/dbd
+# xxxRecord.h will be created from xxxRecord.dbd
+#DBDINC += xxxRecord
+# install devIsegHal.dbd into <top>/dbd
 DBD += devIsegHal.dbd
 
 # specify all source files to be compiled and added to the library
-devisegHAL_SRCS += devIsegHalAi.c
-devisegHAL_SRCS += devIsegHalGlobalSwitchBo.c
-devisegHAL_SRCS += devIsegHalMbbid.c
-devisegHAL_SRCS += devIsegHalAo.c
-devisegHAL_SRCS += devIsegHalStringin.c
-devisegHAL_SRCS += devIsegHal.cpp
-devisegHAL_SRCS += devIsegHalLi.c
-devisegHAL_SRCS += devIsegHalAsync.c
-devisegHAL_SRCS += devIsegHalBo.c
-devisegHAL_SRCS += devIsegHalLo.c
-devisegHAL_SRCS += devIsegHalBi.c
-devisegHAL_SRCS += devIsegHalStringout.c
+devIsegHal_SRCS += devIsegHalAi.c
+devIsegHal_SRCS += devIsegHalAo.c
+devIsegHal_SRCS += devIsegHalAsync.c
+devIsegHal_SRCS += devIsegHalBi.c
+devIsegHal_SRCS += devIsegHalBo.c
+devIsegHal_SRCS += devIsegHal.cpp
+devIsegHal_SRCS += devIsegHalGlobalSwitchBo.c
+devIsegHal_SRCS += devIsegHalLi.c
+devIsegHal_SRCS += devIsegHalLo.c
+devIsegHal_SRCS += devIsegHalMbbid.c
+devIsegHal_SRCS += devIsegHalStringin.c
+devIsegHal_SRCS += devIsegHalStringout.c
 
-#devisegHAL_SYS_LIBS += isegHAL-client
+devIsegHal_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================
 
