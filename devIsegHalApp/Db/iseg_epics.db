@@ -12,10 +12,12 @@
 # ###         MODULE_ID   module address                          ### #
 # ###         CHANNEL_ID  HV channel address                      ### #
 #######################################################################
+# Note that EGU field for DTYP isegHAL records is read from the device
 
 record( stringout, "${P}${R}M${MODULE_ID}:Model" ) {
 	field( VAL,  "$(TYPE=Unspecified)" )
 	field( PINI, "YES" )
+	info(autosaveFields, "DESC")
 }
 
 ###############################
@@ -355,7 +357,7 @@ record( ao, "${P}${R}M${MODULE_ID}:VoltageRampSpeed" ) {
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.VoltageRampSpeed can0" )
   field( FLNK, "${P}${R}M${MODULE_ID}:CurrentRampSpeed" )
   field( TSE,  "-2" )
-	info(autosaveFields, "VAL")
+	info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC VAL")
 }
 
 record( ao, "${P}${R}M${MODULE_ID}:CurrentRampSpeed" ) {
@@ -617,6 +619,8 @@ record( ai, "${P}${R}M${MODULE_ID}:C${CHANNEL_ID}:VoltageMeasure" ) {
   field( SCAN, "${SCAN=.5 second}" )
   field( TSE,  "-2" )
   field( FLNK, "${P}${R}M${MODULE_ID}:C${CHANNEL_ID}:VoltageMeasure:Counter" )
+	field(PREC, "3" )
+	info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC")
 }
 record( calc,  "${P}${R}M${MODULE_ID}:C${CHANNEL_ID}:VoltageMeasure:Counter" )
 {
@@ -665,6 +669,7 @@ record( ai, "${P}${R}M${MODULE_ID}:C${CHANNEL_ID}:VoltageNominal" ) {
   field( SCAN, "${SCAN=.5 second}" )
   field( FLNK, "${P}${R}M${MODULE_ID}:C${CHANNEL_ID}:CurrentNominal" )
   field( TSE,  "-2" )
+	info(autosaveFields, "DESC")
 }
 
 record( ai, "${P}${R}M${MODULE_ID}:C${CHANNEL_ID}:CurrentNominal" ) {
