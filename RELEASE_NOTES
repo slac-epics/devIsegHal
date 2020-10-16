@@ -1,5 +1,8 @@
 # SLAC Release Notes for devIsegHal module
 
+R0.3.0:	2020-10-16 Bruce Hill
+	Add more autosave fields
+
 R0.2.0:	2020-10-15 Bruce Hill
 	Fix Model prefix
 
