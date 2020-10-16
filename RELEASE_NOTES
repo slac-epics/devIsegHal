@@ -1,4 +1,7 @@
 # SLAC Release Notes for devIsegHal module
 
+R0.2.0:	2020-10-15 Bruce Hill
+	Fix Model prefix
+
 R0.1.0:	2020-10-15 Bruce Hill
 	Initial release
