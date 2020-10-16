@@ -13,7 +13,7 @@
 # ###         CHANNEL_ID  HV channel address                      ### #
 #######################################################################
 
-record( stringout, "${P}${R}Model" ) {
+record( stringout, "${P}${R}M${MODULE_ID}:Model" ) {
 	field( VAL,  "$(TYPE=Unspecified)" )
 	field( PINI, "YES" )
 }
