@@ -13,6 +13,11 @@
 # ###         CHANNEL_ID  HV channel address                      ### #
 #######################################################################
 
+record( stringout, "${P}${R}Model" ) {
+	field( VAL,  "$(TYPE=Unspecified)" )
+	field( PINI, "YES" )
+}
+
 ###############################
 # ### CAN_System item values ##
 ###############################
@@ -306,6 +311,7 @@ record( longout, "${P}${R}M${MODULE_ID}:EventMask" ) {
   field( TSE,  "-2" )
 }
 
+# Unsupported?
 record( bo, "${P}${R}M${MODULE_ID}:Control:doClear" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.Control:6 can0" )
@@ -314,6 +320,7 @@ record( bo, "${P}${R}M${MODULE_ID}:Control:doClear" ) {
   field( TSE,  "-2" )
 }
 
+# Unsupported?
 record( bo, "${P}${R}M${MODULE_ID}:Control:setFineAdjustment" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.Control:12 can0" )
@@ -323,6 +330,7 @@ record( bo, "${P}${R}M${MODULE_ID}:Control:setFineAdjustment" ) {
 	info(autosaveFields, "VAL")
 }
 
+# Unsupported?
 record( bo, "${P}${R}M${MODULE_ID}:Control:setKillEnable" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.Control:14 can0" )
@@ -332,6 +340,7 @@ record( bo, "${P}${R}M${MODULE_ID}:Control:setKillEnable" ) {
 	info(autosaveFields, "VAL")
 }
 
+# Unsupported?
 record( bo, "${P}${R}M${MODULE_ID}:Control:disableVoltageRampSpeedLimit" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@${CAN_LINE}.${MODULE_ID}.Control:16 can0" )
