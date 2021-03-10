@@ -1,4 +1,9 @@
 # SLAC Release Notes for devIsegHal module
+R0.4.0: 2021-03-10 Bruce Hill
+    Introducing DEV macro for Crate:PowerOn and other single instance PVs.
+		Needed in order to use different prefixes for modules w/o creating
+		conflicts w/ each module trying to set the crate power to different
+		settings.
 
 R0.3.0:	2020-10-16 Bruce Hill
 	Add more autosave fields
