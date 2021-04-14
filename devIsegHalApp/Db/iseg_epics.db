@@ -205,6 +205,7 @@ record( longout, "$(DEV)$(R)Crate:EventMask" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(DEVICE_ID).EventMask can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 record( ai, "$(DEV)$(R)Crate:FanSpeed" ) {
@@ -313,7 +314,7 @@ record( longout, "$(P)$(R)M$(MODULE_ID):EventMask" ) {
   field( TSE,  "-2" )
 }
 
-# Unsupported?
+# Unsupported for module?
 record( bo, "$(P)$(R)M$(MODULE_ID):Control:doClear" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).Control:6 can0" )
@@ -357,6 +358,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):VoltageRampSpeed" ) {
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).VoltageRampSpeed can0" )
   field( FLNK, "$(P)$(R)M$(MODULE_ID):CurrentRampSpeed" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC VAL")
 }
 
@@ -603,6 +605,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageSet" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).VoltageSet can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
@@ -611,6 +614,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentSet can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
@@ -664,6 +668,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageBounds" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).VoltageBounds can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
@@ -671,6 +676,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentBounds" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentBounds can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
@@ -700,6 +706,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VctCoefficient" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).VctCoefficient can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
@@ -713,10 +720,12 @@ record( mbbiDirect, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status" ) {
 record( bo, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Control:setOn" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).Control:3 can0" )
+  field( DOL,  "0" )
   field( ZNAM, "Channel off" )
   field( ONAM, "Channel on" )
   field( TSE,  "-2" )
-	info(autosaveFields, "VAL")
+  field( PINI, "YES" )
+#	info(autosaveFields, "VAL")
 }
 
 record( bo, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Control:setEmergency" ) {
@@ -738,6 +747,7 @@ record( longout, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventMask" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).EventMask can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
@@ -752,6 +762,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripTime" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).DelayedTripTime can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
@@ -759,6 +770,7 @@ record( longout, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):ExternalInhibitAction" ) 
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).ExternalInhibitAction can0" )
   field( TSE,  "-2" )
+  field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
