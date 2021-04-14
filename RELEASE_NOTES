@@ -1,4 +1,7 @@
 # SLAC Release Notes for devIsegHal module
+R0.5.0: 2021-04-14 Bruce Hill
+	Cleanup PINI and autosaveFields for iseg_epics.db
+
 R0.4.0: 2021-03-10 Bruce Hill
     Introducing DEV macro for Crate:PowerOn and other single instance PVs.
 		Needed in order to use different prefixes for modules w/o creating
