@@ -218,7 +218,7 @@ record( ai, "$(DEV)$(R)Crate:FanSpeed" ) {
 record( bo, "$(DEV)$(R)Crate:Control:doClear" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(DEVICE_ID).Control:0 can0" )
-  field( ZNAM, "" )
+  field( ZNAM, "-" )
   field( ONAM, "doClear" )
   field( TSE,  "-2" )
 }
@@ -318,7 +318,7 @@ record( longout, "$(P)$(R)M$(MODULE_ID):EventMask" ) {
 record( bo, "$(P)$(R)M$(MODULE_ID):Control:doClear" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).Control:6 can0" )
-  field( ZNAM, "" )
+  field( ZNAM, "-" )
   field( ONAM, "doClear" )
   field( TSE,  "-2" )
 }
@@ -327,8 +327,8 @@ record( bo, "$(P)$(R)M$(MODULE_ID):Control:doClear" ) {
 record( bo, "$(P)$(R)M$(MODULE_ID):Control:setFineAdjustment" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).Control:12 can0" )
-  field( ZNAM, "FineAdjustment off" )
-  field( ONAM, "FineAdjustment on" )
+  field( ZNAM, "Off" )
+  field( ONAM, "On" )
   field( TSE,  "-2" )
 	info(autosaveFields, "VAL")
 }
@@ -337,8 +337,8 @@ record( bo, "$(P)$(R)M$(MODULE_ID):Control:setFineAdjustment" ) {
 record( bo, "$(P)$(R)M$(MODULE_ID):Control:setKillEnable" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).Control:14 can0" )
-  field( ZNAM, "KillEnable off" )
-  field( ONAM, "KillEnable on" )
+  field( ZNAM, "Off" )
+  field( ONAM, "On" )
   field( TSE,  "-2" )
 	info(autosaveFields, "VAL")
 }
@@ -452,23 +452,23 @@ record( stringin, "$(P)$(R)M$(MODULE_ID):Article" ) {
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isFineAdjustment" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.B0 CP" )
-  field( ZNAM, "off" )
-  field( ONAM, "on" )
+  field( ZNAM, "Off" )
+  field( ONAM, "On" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isLiveInsertion" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.B2 CP" )
-  field( ZNAM, "off" )
-  field( ONAM, "on" )
+  field( ZNAM, "Off" )
+  field( ONAM, "On" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):needService" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.B4 CP" )
-  field( ZNAM, "ok" )
+  field( ZNAM, "OK" )
   field( ONAM, "Hardware failure detected" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
@@ -476,7 +476,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):needService" ) {
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isInputError" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.B6 CP" )
-  field( ZNAM, "ok" )
+  field( ZNAM, "OK" )
   field( ONAM, "Error" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MINOR" )
@@ -485,31 +485,31 @@ record( bi, "$(P)$(R)M$(MODULE_ID):isInputError" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):isNoSumError" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.B8 CP" )
   field( ZNAM, "Error" )
-  field( ONAM, "ok" )
+  field( ONAM, "OK" )
   field( ZSV,  "MAJOR" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isNoRamp" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.B9 CP" )
-  field( ZNAM, "channel is ramping" )
-  field( ONAM, "all channels stable" )
+  field( ZNAM, "Ramping" )
+  field( ONAM, "Stable" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isSafetyLoopGood" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.BA CP" )
-  field( ZNAM, "broken" )
-  field( ONAM, "closed" )
+  field( ZNAM, "Broken" )
+  field( ONAM, "Closed" )
   field( ZSV,  "MAJOR" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isEventActive" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.BB CP" )
-  field( ZNAM, "no active Event" )
-  field( ONAM, "any event active" )
+  field( ZNAM, "No active Event" )
+  field( ONAM, "Active event(s)" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
@@ -525,23 +525,23 @@ record( bi, "$(P)$(R)M$(MODULE_ID):isModuleGood" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):isSupplyGood" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.BD CP" )
   field( ZNAM, "Out of Range" )
-  field( ONAM, "ok" )
+  field( ONAM, "OK" )
   field( ZSV,  "MAJOR" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isTemperatureGood" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.BE CP" )
-  field( ZNAM, "above 55 degC" )
-  field( ONAM, "within range" )
+  field( ZNAM, "Above 55 degC" )
+  field( ONAM, "Within range" )
   field( ZSV,  "MAJOR" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isKillEnable" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):Status.BF CP" )
-  field( ZNAM, "disabled" )
-  field( ONAM, "enabled" )
+  field( ZNAM, "Disabled" )
+  field( ONAM, "Enabled" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
@@ -551,8 +551,8 @@ record( bi, "$(P)$(R)M$(MODULE_ID):isKillEnable" ) {
 ###########################################
 record( bi, "$(P)$(R)M$(MODULE_ID):EventLiveInsertion" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):EventStatus.B2 CP" )
-  field( ZNAM, "off" )
-  field( ONAM, "on" )
+  field( ZNAM, "Off" )
+  field( ONAM, "On" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
@@ -612,6 +612,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageSet" ) {
 record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet" ) {
   field( DESC, "Set Current Limit" )
   field( DTYP, "isegHAL" )
+  field( DOL,  "1e-4" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentSet can0" )
   field( TSE,  "-2" )
   field( PINI, "YES" )
@@ -721,8 +722,8 @@ record( bo, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Control:setOn" ) {
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).Control:3 can0" )
   field( DOL,  "0" )
-  field( ZNAM, "Channel off" )
-  field( ONAM, "Channel on" )
+  field( ZNAM, "Off" )
+  field( ONAM, "On" )
   field( TSE,  "-2" )
   field( PINI, "YES" )
 #	info(autosaveFields, "VAL")
@@ -787,16 +788,16 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):InputError" ) {
 
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isOn" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.B3 CP" )
-  field( ZNAM, "off" )
-  field( ONAM, "on" )
+  field( ZNAM, "Off" )
+  field( ONAM, "On" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageRamp" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.B4 CP" )
-  field( ZNAM, "stable" )
-  field( ONAM, "ramping" )
+  field( ZNAM, "Stable" )
+  field( ONAM, "Ramping" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MINOR" )
 }
@@ -804,7 +805,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageRamp" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isEmergency" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.B5 CP" )
   field( ZNAM, "-" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -813,7 +814,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCC" ) {
 	field( DESC, "Constant Current Channel Status" )
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.B6 CP" )
   field( ZNAM, "-" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -821,8 +822,8 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCC" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCV" ) {
 	field( DESC, "Constant Voltage Channel Status" )
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.B7 CP" )
-  field( ZNAM, "ramping" )
-  field( ONAM, "stable" )
+  field( ZNAM, "Ramping" )
+  field( ONAM, "Stable" )
   field( ZSV,  "MINOR" )
   field( OSV,  "NO_ALARM" )
 }
@@ -845,8 +846,8 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageBound" ) {
 
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isExternalInhibit" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.BC CP" )
-  field( ZNAM, "no" )
-  field( ONAM, "yes" )
+  field( ZNAM, "No" )
+  field( ONAM, "Yes" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -854,7 +855,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isExternalInhibit" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isTrip" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.BD CP" )
   field( ZNAM, "OK" )
-  field( ONAM, "tripped" )
+  field( ONAM, "Tripped" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
   field( SCAN, "$(SCAN=.5 second)" )
@@ -863,7 +864,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isTrip" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCurrentLimit" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.BE CP" )
   field( ZNAM, "OK" )
-  field( ONAM, "exceeded" )
+  field( ONAM, "Exceeded" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
   field( SCAN, "$(SCAN=.5 second)" )
@@ -872,7 +873,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCurrentLimit" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageLimit" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Status.BF CP" )
   field( ZNAM, "OK" )
-  field( ONAM, "exceeded" )
+  field( ONAM, "Exceeded" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
   field( SCAN, "$(SCAN=.5 second)" )
@@ -884,7 +885,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageLimit" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventInputError" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.B2 CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MINOR" )
 }
@@ -892,7 +893,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventInputError" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventOn2Off" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.B3 CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -900,7 +901,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventOn2Off" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventEndOfRamp" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.B4 CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
@@ -908,7 +909,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventEndOfRamp" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventEmergency" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.B5 CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
@@ -916,7 +917,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventEmergency" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCC" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.B6 CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -924,7 +925,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCC" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCV" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.B7 CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
@@ -932,7 +933,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCV" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentBounds" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.BA CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -940,7 +941,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentBounds" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventVoltageBounds" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.BB CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -948,7 +949,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventVoltageBounds" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventExternalInhibit" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.BC CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -956,7 +957,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventExternalInhibit" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventTrip" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.BD CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -964,7 +965,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventTrip" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentLimit" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.BE CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -972,7 +973,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentLimit" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventVoltageLimit" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventStatus.BF CP" )
   field( ZNAM, "--" )
-  field( ONAM, "active" )
+  field( ONAM, "Active" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
