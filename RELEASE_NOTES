@@ -1,4 +1,7 @@
 # SLAC Release Notes for devIsegHal module
+R0.6.0: 2021-07-02 Bruce Hill
+	Revised many ZNAM and ONAM fields for readability.
+
 R0.5.0: 2021-04-14 Bruce Hill
 	Cleanup PINI and autosaveFields for iseg_epics.db
 
