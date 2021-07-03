@@ -1,4 +1,8 @@
 # SLAC Release Notes for devIsegHal module
+R0.7.0: 2021-07-02 Bruce Hill
+	Added PV to update CurrentSet.DRVH field based on max current.
+	Added enum fields for DelayedTripAction PV.
+
 R0.6.0: 2021-07-02 Bruce Hill
 	Revised many ZNAM and ONAM fields for readability.
 
