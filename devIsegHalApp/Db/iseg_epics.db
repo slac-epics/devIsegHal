@@ -551,8 +551,8 @@ record( bi, "$(P)$(R)M$(MODULE_ID):isKillEnable" ) {
 ###########################################
 record( bi, "$(P)$(R)M$(MODULE_ID):EventLiveInsertion" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):EventStatus.B2 CP" )
-  field( ZNAM, "Off" )
-  field( ONAM, "On" )
+  field( ZNAM, "-" )
+  field( ONAM, "Module Inserted" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
 }
@@ -560,7 +560,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):EventLiveInsertion" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):EventService" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):EventStatus.B4 CP" )
   field( ZNAM, "-" )
-  field( ONAM, "Hardware failure detected" )
+  field( ONAM, "HW failure!" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -568,7 +568,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):EventService" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):EventInputError" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):EventStatus.B6 CP" )
   field( ZNAM, "-" )
-  field( ONAM, "Input Error in connection" )
+  field( ONAM, "Input Error" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -584,7 +584,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):EventSafetyLoopNotGood" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):EventSupplyNotGood" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):EventStatus.BD CP" )
   field( ZNAM, "-" )
-  field( ONAM, "Supply is not good" )
+  field( ONAM, "Supply error" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -592,7 +592,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):EventSupplyNotGood" ) {
 record( bi, "$(P)$(R)M$(MODULE_ID):EventTemperatureNotGood" ) {
   field( INP,  "$(P)$(R)M$(MODULE_ID):EventStatus.BE CP" )
   field( ZNAM, "-" )
-  field( ONAM, "Temperature above 55 degC" )
+  field( ONAM, "Temp > 55C" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "MAJOR" )
 }
@@ -625,7 +625,7 @@ record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet_RBV" ) {
 	field( INP,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentSet can0" )
 	field( SCAN, "$(SCAN=.5 second)" )
 	field( TSE,  "-2" )
-	field(PREC, "3" )
+	field( PREC, "3" )
 	info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC")
 }
 
@@ -635,7 +635,7 @@ record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageMeasure" ) {
   field( SCAN, "$(SCAN=.5 second)" )
   field( TSE,  "-2" )
   field( FLNK, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageMeasure:Counter" )
-	field(PREC, "3" )
+	field( PREC, "3" )
 	info(autosaveFields, "ADEL DESC LOLO LOW HIGH HIHI LLSV LSV HSV HHSV MDEL PREC")
 }
 record( calc,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageMeasure:Counter" )
@@ -666,17 +666,21 @@ record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentMeasure" ) {
 }
 
 record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageBounds" ) {
+	field( DESC, "+- tolerance on VoltageSet" )
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).VoltageBounds can0" )
   field( TSE,  "-2" )
+	field( PREC, "3" )
   field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
 
 record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentBounds" ) {
+	field( DESC, "+- tolerance on CurrentSet limit" )
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentBounds can0" )
   field( TSE,  "-2" )
+	field( PREC, "3" )
   field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
@@ -684,16 +688,28 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentBounds" ) {
 record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageNominal" ) {
   field( DTYP, "isegHAL" )
   field( INP,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).VoltageNominal can0" )
-  field( SCAN, "$(SCAN=.5 second)" )
-  field( FLNK, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentNominal" )
+	field( PREC, "3" )
+	field( PINI, "YES" )
   field( TSE,  "-2" )
 	info(autosaveFields, "DESC")
 }
 
-record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentNominal" ) {
-  field( DTYP, "isegHAL" )
-  field( INP,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentNominal can0" )
-  field( TSE,  "-2" )
+record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentNominal" )
+{
+	field( DTYP, "isegHAL" )
+	field( INP,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentNominal can0" )
+	field( PINI, "YES" )
+	field( PREC, "3" )
+	field( FLNK, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):UpdateCurrentSetLimit" )
+	field( TSE,  "-2" )
+}
+
+record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):UpdateCurrentSetLimit" )
+{
+	field( OMSL, "closed_loop" )
+	field( DOL,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentNominal" )
+	field( OUT,  "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet.DRVH" )
+	field( PREC, "3" )
 }
 
 record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):TemperatureExternal" ) {
@@ -752,17 +768,27 @@ record( longout, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventMask" ) {
 	info(autosaveFields, "VAL")
 }
 
-record( longout, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripAction" ) {
+record( mbbo, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripAction" ) {
+	field( DESC, "Enable DelayedTrip" )
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).DelayedTripAction can0" )
-  field( FLNK, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripTime" )
+  field( DOL,  "1" )
+  field( ZRVL, "0" ) field( ZRST, "No action" )
+  field( ONVL, "1" ) field( ONST, "Ramp Down" )
+  field( TWVL, "2" ) field( TWST, "Trip w/o ramp" )
+  field( THVL, "3" ) field( THST, "Shutdown Mod" )
+  field( FRVL, "4" ) field( FRST, "Disabled" )
   field( TSE,  "-2" )
+	info(autosaveFields, "VAL")
 }
 
 record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripTime" ) {
+	field( DESC, "Delay before tripping." )
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).DelayedTripTime can0" )
   field( TSE,  "-2" )
+	field( DOL,  "1" )
+	field( EGU,  "ms" )
   field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
