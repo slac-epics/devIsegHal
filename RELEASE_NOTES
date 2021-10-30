@@ -1,4 +1,8 @@
 # SLAC Release Notes for devIsegHal module
+R0.8.0:	2021-10-30 Bruce Hill
+	Tweak initial settings for DelayedTrip PVs
+	Add support for mbbo records
+
 R0.7.0: 2021-07-02 Bruce Hill
 	Added PV to update CurrentSet.DRVH field based on max current.
 	Added enum fields for DelayedTripAction PV.
