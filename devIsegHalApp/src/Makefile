@@ -35,6 +35,7 @@ devIsegHal_SRCS += devIsegHalGlobalSwitchBo.c
 devIsegHal_SRCS += devIsegHalLi.c
 devIsegHal_SRCS += devIsegHalLo.c
 devIsegHal_SRCS += devIsegHalMbbid.c
+devIsegHal_SRCS += devIsegHalMbbo.c
 devIsegHal_SRCS += devIsegHalStringin.c
 devIsegHal_SRCS += devIsegHalStringout.c
 
