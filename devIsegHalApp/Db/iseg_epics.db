@@ -615,6 +615,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet" ) {
   field( DOL,  "1e-4" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).CurrentSet can0" )
   field( TSE,  "-2" )
+  field( PREC,  "3" )
   field( PINI, "YES" )
 	info(autosaveFields, "VAL")
 }
@@ -772,13 +773,14 @@ record( mbbo, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripAction" ) {
 	field( DESC, "Enable DelayedTrip" )
   field( DTYP, "isegHAL" )
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).DelayedTripAction can0" )
-  field( DOL,  "1" )
+  field( DOL,  "2" )
   field( ZRVL, "0" ) field( ZRST, "No action" )
   field( ONVL, "1" ) field( ONST, "Ramp Down" )
   field( TWVL, "2" ) field( TWST, "Trip w/o ramp" )
   field( THVL, "3" ) field( THST, "Shutdown Mod" )
   field( FRVL, "4" ) field( FRST, "Disabled" )
   field( TSE,  "-2" )
+	field( PINI,  "YES" )
 	info(autosaveFields, "VAL")
 }
 
