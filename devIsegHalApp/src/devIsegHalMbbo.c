@@ -55,7 +55,7 @@ static long devIsegHalInitRecord_mbbo( mbboRecord *prec );
 static long devIsegHalWrite_mbbo( dbCommon *prec, char* value ); 
 
 /*_____ G L O B A L S ________________________________________________________*/
-devIsegHal_dset_t devIsegHalmbbo = {
+devIsegHal_dset_t devIsegHalMbbo = {
   7,
   NULL,
   devIsegHalInit,
@@ -65,7 +65,7 @@ devIsegHal_dset_t devIsegHalmbbo = {
   NULL,
   devIsegHalWrite_mbbo
 };
-epicsExportAddress( dset, devIsegHalmbbo );
+epicsExportAddress( dset, devIsegHalMbbo );
 
 /*_____ L O C A L S __________________________________________________________*/
 
