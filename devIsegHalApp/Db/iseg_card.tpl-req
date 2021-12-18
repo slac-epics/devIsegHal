@@ -1,0 +1,13 @@
+# iseg_card.tpl-req
+$(P)$(R)M$(MODULE_ID):Control:setFineAdjustment
+$(P)$(R)M$(MODULE_ID):Control:disableVoltageRampSpeedLimit
+$(P)$(R)M$(MODULE_ID):VoltageRampSpeed
+$(P)$(R)M$(MODULE_ID):CurrentRampSpeed
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageSet
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageBounds
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentBounds
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):UpdateCurrentSetLimit
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VctCoefficient
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripAction
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripTime
