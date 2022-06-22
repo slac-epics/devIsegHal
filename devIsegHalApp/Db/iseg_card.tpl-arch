@@ -1,54 +1,54 @@
 # iseg_card.tpl-arch
-$(DEV)$(R)Crate:GlobalEmergency.VAL
-$(DEV)$(R)Crate:GlobalOnOff.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Control:setEmergency.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Control:setOn.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentBounds.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentMeasure.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentNominal.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet_RBV.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripAction.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripTime.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentBounds.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentLimit.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventEmergency.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventExternalInhibit.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventInputError.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventTrip.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventVoltageBounds.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventVoltageLimit.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):InputError.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCurrentBound.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCurrentLimit.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isEmergency.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isExternalInhibit.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isOn.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isTrip.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageBound.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageLimit.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):TemperatureExternal.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):UpdateCurrentSetLimit.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VctCoefficient.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageBounds.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageMeasure.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageNominal.VAL
-$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageSet.VAL
-$(P)$(R)M$(MODULE_ID):Control:disableVoltageRampSpeedLimit.VAL
-$(P)$(R)M$(MODULE_ID):Control:setFineAdjustment.VAL
-$(P)$(R)M$(MODULE_ID):CurrentRampSpeed.VAL
-$(P)$(R)M$(MODULE_ID):EventInputError.VAL
-$(P)$(R)M$(MODULE_ID):EventLiveInsertion.VAL
-$(P)$(R)M$(MODULE_ID):EventSafetyLoopNotGood.VAL
-$(P)$(R)M$(MODULE_ID):EventService.VAL
-$(P)$(R)M$(MODULE_ID):EventSupplyNotGood.VAL
-$(P)$(R)M$(MODULE_ID):EventTemperatureNotGood.VAL
-$(P)$(R)M$(MODULE_ID):isInputError.VAL
-$(P)$(R)M$(MODULE_ID):isModuleGood.VAL
-$(P)$(R)M$(MODULE_ID):isNoSumError.VAL
-$(P)$(R)M$(MODULE_ID):isSafetyLoopGood.VAL
-$(P)$(R)M$(MODULE_ID):isSupplyGood.VAL
-$(P)$(R)M$(MODULE_ID):isTemperatureGood.VAL
-$(P)$(R)M$(MODULE_ID):needService.VAL
-$(P)$(R)M$(MODULE_ID):Temperature.VAL
-$(P)$(R)M$(MODULE_ID):VoltageRampSpeed.VAL
+$(DEV)$(R)Crate:GlobalEmergency.VAL								10	monitor
+$(DEV)$(R)Crate:GlobalOnOff.VAL									10	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Control:setEmergency.VAL	10	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):Control:setOn.VAL			10	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentBounds.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentMeasure.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentNominal.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet_RBV.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet.VAL				1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripAction.VAL		1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):DelayedTripTime.VAL		1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentBounds.VAL		1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventCurrentLimit.VAL		1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventEmergency.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventExternalInhibit.VAL	1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventInputError.VAL		1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventTrip.VAL				1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventVoltageBounds.VAL		1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):EventVoltageLimit.VAL		1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):InputError.VAL				1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCurrentBound.VAL			1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isCurrentLimit.VAL			1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isEmergency.VAL			1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isExternalInhibit.VAL		1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isOn.VAL					1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isTrip.VAL					1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageBound.VAL			1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageLimit.VAL			1	monitor
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):TemperatureExternal.VAL	1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):UpdateCurrentSetLimit.VAL	1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VctCoefficient.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageBounds.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageMeasure.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageNominal.VAL			1	scan
+$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageSet.VAL				1	scan
+$(P)$(R)M$(MODULE_ID):Control:disableVoltageRampSpeedLimit.VAL	1	scan
+$(P)$(R)M$(MODULE_ID):Control:setFineAdjustment.VAL				1	scan
+$(P)$(R)M$(MODULE_ID):CurrentRampSpeed.VAL						1	scan
+$(P)$(R)M$(MODULE_ID):EventInputError.VAL						1	monitor
+$(P)$(R)M$(MODULE_ID):EventLiveInsertion.VAL					1	monitor
+$(P)$(R)M$(MODULE_ID):EventSafetyLoopNotGood.VAL				1	monitor
+$(P)$(R)M$(MODULE_ID):EventService.VAL							1	monitor
+$(P)$(R)M$(MODULE_ID):EventSupplyNotGood.VAL					1	monitor
+$(P)$(R)M$(MODULE_ID):EventTemperatureNotGood.VAL				1	monitor
+$(P)$(R)M$(MODULE_ID):isInputError.VAL							1	scan
+$(P)$(R)M$(MODULE_ID):isModuleGood.VAL							1	scan
+$(P)$(R)M$(MODULE_ID):isNoSumError.VAL							1	scan
+$(P)$(R)M$(MODULE_ID):isSafetyLoopGood.VAL						1	scan
+$(P)$(R)M$(MODULE_ID):isSupplyGood.VAL							1	scan
+$(P)$(R)M$(MODULE_ID):isTemperatureGood.VAL						1	scan
+$(P)$(R)M$(MODULE_ID):needService.VAL							1	scan
+$(P)$(R)M$(MODULE_ID):Temperature.VAL							1	scan
+$(P)$(R)M$(MODULE_ID):VoltageRampSpeed.VAL						1	scan

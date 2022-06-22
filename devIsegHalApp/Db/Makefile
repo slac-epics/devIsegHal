@@ -13,7 +13,7 @@ include $(TOP)/configure/CONFIG
 #DB += xxx.db
 DB += iseg_epics.db
 
-ARCH += iseg_card.tpl-arch
+ARCHIVE += iseg_card.tpl-arch
 REQ  += iseg_card.tpl-req
 
 #----------------------------------------------------
