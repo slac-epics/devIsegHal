@@ -1,4 +1,7 @@
 # SLAC Release Notes for devIsegHal module
+R0.9.1:	2022-06-22 Bruce Hill
+	Add autosave for some bi and bo record ZSV and OSV fields.
+
 R0.9.0:	2022-06-22 Bruce Hill
 	Adding iseg_card.tpl-arch and tpl-req
 
