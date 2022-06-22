@@ -239,6 +239,7 @@ record( bo, "$(DEV)$(R)Crate:PowerOn" ) {
   field( ZNAM, "Off" )
   field( ONAM, "On" )
   field( PINI, "YES" )
+	info(autosaveFields, "ZSV OSV")
 }
 
 record( stringin, "$(DEV)$(R)Crate:FirmwareRelease" ) {
@@ -504,6 +505,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):isSafetyLoopGood" ) {
   field( ONAM, "Closed" )
   field( ZSV,  "MAJOR" )
   field( OSV,  "NO_ALARM" )
+	info(autosaveFields, "ZSV OSV")
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):isEventActive" ) {
@@ -820,6 +822,7 @@ record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isOn" ) {
   field( ONAM, "On" )
   field( ZSV,  "NO_ALARM" )
   field( OSV,  "NO_ALARM" )
+	info(autosaveFields, "ZSV OSV")
 }
 
 record( bi, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):isVoltageRamp" ) {
