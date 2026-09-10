@@ -608,7 +608,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):VoltageSet" ) {
   field( OUT,  "@$(CAN_LINE).$(MODULE_ID).$(CHANNEL_ID).VoltageSet can0" )
   field( TSE,  "-2" )
   field( PINI, "YES" )
-	info(autosaveFields, "VAL")
+	info(autosaveFields, "VAL DRVL DRVH HOPR LOPR")
 }
 
 record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet" ) {
@@ -619,7 +619,7 @@ record( ao, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet" ) {
   field( TSE,  "-2" )
   field( PREC,  "3" )
   field( PINI, "YES" )
-	info(autosaveFields, "VAL")
+	info(autosaveFields, "VAL DRVL DRHL HOPR LOPR")
 }
 
 record( ai, "$(P)$(R)M$(MODULE_ID):C$(CHANNEL_ID):CurrentSet_RBV" ) {
